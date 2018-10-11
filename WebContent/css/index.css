@@ -1,0 +1,93 @@
+body, html {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 90%;
+	margin: 0 auto;
+	background: url("../images/background.jpg");
+	background-size: 100vw;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+div {
+	text-align: center;
+}
+
+h1, h2, h3 {
+	color: #e16b68;
+}
+
+input[type="number"] {
+	display: block;
+	padding: .5em;
+	margin: .5em auto;
+}
+
+input[type="text"] {
+	border: 0;
+	border-top: 2px solid #e16b68;
+	border-bottom: 2px solid #e16b68;
+	padding: .5em .5em; 
+	transition: 0.2s;
+	background-color: transparent;
+	color: black;
+	width: min-content;
+	width: 80%;
+}
+
+input[type="text"]:placeholder {
+	color: gray; 
+}
+
+input:focus {
+	outline: 1px solid white;
+}
+
+input[type="text"]:focus {
+	padding: .8em .5em;
+	outline: none; 
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+input[type="submit"], a {
+	border: 1px solid #e16b68;
+	background-color: transparent;
+	padding: .5em 1em;
+	margin: 1em auto;
+	min-width: 50%;
+	transition: .2s;
+	display: block;
+}
+
+input[type="submit"]:hover {
+	cursor: pointer;
+	color: white;
+	background-color: #e16b68;
+}
+
+#footer {
+	position: fixed;
+	bottom: 0;
+	padding: 1em;
+	color: #e16b68;
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+}
+
+#footer ul li {
+	display: inline;
+}
