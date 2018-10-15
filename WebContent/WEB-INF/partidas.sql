@@ -37,20 +37,6 @@ CREATE TABLE `partidas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `partidas`
---
-
-INSERT INTO `partidas` (`id`, `nombre`, `intentos`, `tiempo`, `numero`) VALUES
-(3, '', 4, '13 segundos.', 2),
-(4, '', 3, '16 segundos.', 0),
-(5, '', 4, '25 segundos.', 5),
-(6, '', 1, '4 segundos.', 7),
-(11, '', 0, '7 segundos.', 11),
-(12, '', 27, '1 minutos, 16 segundos.', 6),
-(13, '', 1, '3 segundos.', 2),
-(14, '', 31, '3 minutos, 7 segundos.', 184);
-
---
 -- Índices para tablas volcadas
 --
 
