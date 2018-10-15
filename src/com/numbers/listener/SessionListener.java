@@ -36,12 +36,14 @@ public class SessionListener implements HttpSessionListener {
 	 */
 	public void sessionDestroyed(HttpSessionEvent se) {
 		HttpSession session = se.getSession();
+		System.out.println(session.getAttribute("guessNumber"));
 		AdivinarServlet srvlet = new AdivinarServlet();
 		int num = srvlet.decryptNumber((byte[]) (session.getAttribute("guessNumber")));
 		Connection conn = (Connection) se.getSession().getServletContext().getAttribute("dbConn");
 		String query = "insert into partidas (nombre, intentos, tiempo, numero) values ('";
-		query += session.getAttribute("nombre");
+		query += session.getAttribute("nombre") + "', '";
 		Intento attempt = (Intento) session.getAttribute("intento");
+		System.out.println(attempt);
 		if (attempt.getIntentoActual() > 0) {
 			query += attempt.getIntentoActual() + "', '";
 			query += attempt.getTotalTime(attempt.getTiempo()) + "','";

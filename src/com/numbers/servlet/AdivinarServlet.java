@@ -5,6 +5,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -94,6 +98,24 @@ public class AdivinarServlet extends HttpServlet {
 					attempt.setMensaje("Debe introducir un valor númerico correcto");
 				}
 			}
+		}
+		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
+		try {
+			Statement stm = conn.createStatement();
+			ResultSet rs = stm.executeQuery("select * from partidas");
+			ArrayList<ArrayList<Object>> partidas = new ArrayList<ArrayList<Object>>();
+			while(rs.next()) {
+				ArrayList<Object> partida = new ArrayList<Object>();
+				partida.add(rs.getString(2));
+				partida.add(rs.getInt(3));
+				partida.add(rs.getString(4));
+				partida.add(rs.getInt(5));
+				partidas.add(partida);
+			}
+			stm.close();
+			session.setAttribute("partidas", partidas);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		rd.forward(request, response);
 	}

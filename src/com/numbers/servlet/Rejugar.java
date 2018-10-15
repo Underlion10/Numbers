@@ -25,15 +25,15 @@ public class Rejugar extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getSession().setAttribute("nombre", request.getParameter("nombre"));
+		System.out.println(request.getSession().getAttribute("nombre"));
+		request.getSession().invalidate();
+		response.sendRedirect("/ElsNumeros");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().setAttribute("nombre", request.getAttribute("nombre"));
-		request.getSession().invalidate();
-		response.sendRedirect("/ElsNumeros");
 	}
-
 }
